@@ -1,19 +1,30 @@
-def bhaskara(n1, n2, n3):
-  n1 = float(input('Digite o valor de a: '))
-  n2 = float(input('Digite o valor de b: '))
-  n3 = float(input('Digite o valor de c: '))
-  delta = (n2**2) - 4 * n1 * n3
-  
-  if delta < 0:
-    print('Não existe raiz real')
-  elif delta == 0:
-    print('Existe apenas uma raiz real')
-    root = (-n2 + math.sqrt(delta) / (2 * n1))
-    print(f'A raiz é: {root}')
-  else:
-    print('Existem duas raizes reais')
-    root1 = (-n2 + math.sqrt(delta)) / (2 * n1)
-    root2 = (-n2 - math.sqrt(delta)) / (2 * n1)
-    print(f'As raizes são: {root1} e {root2}')
 
-  bhaskara(0.0, 0.0, 0.0)
+import math
+
+def bhaskara(a, b, c):
+    try:
+        a = float(a)
+        b = float(b)
+        c = float(c)
+
+        delta = b**2 - 4 * a * c
+
+        if delta < 0:
+            return 'Não existem raízes reais.'
+        elif delta == 0:
+            root = -b / (2 * a)
+            return f'Existe apenas uma raiz real: {root:.2f}'
+        else:
+            root1 = (-b + math.sqrt(delta)) / (2 * a)
+            root2 = (-b - math.sqrt(delta)) / (2 * a)
+            return f'As raízes são: {root1:.2f} e {root2:.2f}'  
+    except ValueError:
+        return 'Os coeficientes devem ser números.'
+
+
+def logaritmo(num):
+    math.log(num)
+
+
+
+
