@@ -2,6 +2,18 @@ import ast
 import math
 
 
+
+
+def calcular_taxa_erro_software(erros, linhas_codigo):
+    try:
+        erros = float(erros)
+        linhas_codigo = float(linhas_codigo)
+        return (erros / linhas_codigo) * 100
+    except ValueError:
+        return None
+
+
+
 # Fórmula para cálculo de Bháskara
 def bhaskara(a, b, c):
     try:
@@ -27,46 +39,6 @@ def bhaskara(a, b, c):
 # Fórmula para cálculo de log Simples
 def logaritmo(num):
     math.log(num)
-
-
-
-
-# Fórmula para cálculo de complexidade ciclomática
-
-
-import ast
-
-def calcular_complexidade_ciclomatica(source_code):
-    tree = ast.parse(source_code)
-    complexity = 1  # Começa com 1 para contar o nó raiz
-
-    for node in ast.walk(tree):
-        if isinstance(node, ast.If) or isinstance(node, ast.For) or isinstance(node, ast.While):
-            complexity += 1
-        elif isinstance(node, ast.FunctionDef):
-            # Conta o número de pontos de decisão nas funções
-            for sub_node in ast.walk(node):
-                if isinstance(sub_node, ast.If) or isinstance(sub_node, ast.For) or isinstance(sub_node, ast.While):
-                    complexity += 1
-    return complexity
-
-    
-
-
-
-        # 
-
-            #
-             
-                # TERMINAR DE ARRUMAR A FUNÇÃO DE CÁLCULO DE COMPLEXIDADE CICLOMÁTICA
-
-            # 
-
-        # 
-
-
-
-
 
 
 
